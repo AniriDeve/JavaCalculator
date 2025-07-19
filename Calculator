@@ -1,0 +1,57 @@
+/**
+* Простой консольный калькулятор на Java.
+* Поддерживает четыре основные арифметические операции.
+*/
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Сканнер для ввода пользователя
+
+        while (true) {
+            System.out.println("Выберите операцию:");
+            System.out.println("1. Сложение");
+            System.out.println("2. Вычитание");
+            System.out.println("3. Умножение");
+            System.out.println("4. Деление");
+            System.out.println("0. Выход");
+
+            int choice = scanner.nextInt(); // Чтение выбора
+            if (choice == 0) {
+                System.out.println("Выход из программы.");
+                break;
+            }
+
+            System.out.print("Введите первое число: ");
+            double num1 = scanner.nextDouble(); // Первое число
+            System.out.print("Введите второе число: ");
+            double num2 = scanner.nextDouble(); // Второе число
+
+            double result;
+            switch (choice) {
+                case 1:
+                    result = num1 + num2;
+                    System.out.println("Результат: " + result);
+                    break;
+                case 2:
+                    result = num1 - num2;
+                    System.out.println("Результат: " + result);
+                    break;
+                case 3:
+                    result = num1 * num2;
+                    System.out.println("Результат: " + result);
+                    break;
+                case 4:
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                        System.out.println("Результат: " + result);
+                    } else {
+                        System.out.println("Ошибка: Деление на ноль!");
+                    }
+                    break;
+                default:
+                    System.out.println("Неверный выбор операции.");
+            }
+        }
+
+        scanner.close();
+    }
+}
